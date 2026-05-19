@@ -12,20 +12,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MenuController {
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
     @FXML
     protected void MenuPlayButtonClick(ActionEvent event) throws IOException {
-        welcomeText.setText("Loading...");
+        cz.stojkar.whugo.model.GameState.resetInstance();
 
         // 1. Načtení nového FXML souboru
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("intro.fxml"));
         Parent gameViewRoot = loader.load();
 
         // 2. Vytvoření nové scény s načteným obsahem
@@ -37,5 +30,10 @@ public class MenuController {
         // 4. Nastavení nové scény do okna
         stage.setScene(gameScene);
         stage.show();
+    }
+
+    @FXML
+    protected void onExitButtonClick() {
+        javafx.application.Platform.exit();
     }
 }

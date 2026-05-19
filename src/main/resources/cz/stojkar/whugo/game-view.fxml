@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cz.stojkar.whugo.GameController"
-            prefHeight="1280.0" prefWidth="720.0">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.stojkar.whugo.GameController">
+   <children>
+      <!-- Vrstva 1: Pozadí pro lokace -->
+      <Pane fx:id="scenePane" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" onDragOver="#onSceneDragOver" onDragDropped="#onSceneDragDropped" />
 
+      <!-- Vrstva 2: Globální UI (Inventář a texty) -->
+      
+      <!-- Dialogue/Text Label nahoře -->
+      <Label fx:id="dialogueLabel" alignment="CENTER" layoutX="0.0" layoutY="50.0" prefWidth="1280.0" mouseTransparent="true" text="" textFill="WHITE" style="-fx-effect: dropshadow(gaussian, black, 5, 1.0, 0, 0);">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+
+      <!-- Bublina s Inventářem vlevo dole -->
+      <AnchorPane layoutX="30.0" layoutY="560.0" prefHeight="130.0">
+         <children>
+            <!-- Podklad bubliny přes CSS (škáluje se perfektně) -->
+            <javafx.scene.layout.HBox fx:id="inventoryBubble" alignment="CENTER_LEFT" prefHeight="130.0" prefWidth="130.0" spacing="10.0" style="-fx-background-color: rgba(96, 94, 95, 0.85); -fx-background-radius: 65; -fx-padding: 25; -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);">
+               <children>
+                  <!-- Ikona ruky (vždy viditelná) -->
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ruka_ikona.png" />
+                     </image>
+                  </ImageView>
+
+                  <!-- Ikona aktuálního předmětu (např. žebřík) -->
+                  <ImageView fx:id="inventoryItemIcon" fitHeight="80.0" fitWidth="80.0" onDragDetected="#onInventoryItemDragDetected" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <cursor>
+                        <javafx.scene.Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </javafx.scene.layout.HBox>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
