@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.stojkar.whugo.controllers.HugoDumController">
+   <children>
+      <!-- Pozadí lokace -->
+      <ImageView fitHeight="600.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@images/hugo_dum.png" />
+         </image>
+      </ImageView>
+
+      <!-- NPC – stařec na lavičce -->
+      <ImageView fx:id="npcStarec" fitHeight="478.0" fitWidth="674.0"
+                 layoutX="200.0" layoutY="140.0"
+                 pickOnBounds="true" preserveRatio="true"
+                 onMouseClicked="#onNpcClicked"
+                 onMouseEntered="#onNpcEntered"
+                 onMouseExited="#onNpcExited">
+         <image>
+            <Image url="@images/npc_lavicka.png" />
+         </image>
+      </ImageView>
+
+      <!-- Hrdina -->
+      <ImageView fx:id="heroSprite" fitHeight="250.0" fitWidth="150.0" layoutX="500.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/hrdina_stoji.png" />
+         </image>
+      </ImageView>
+
+      <!-- Navigační šipka doleva (zpět na ulici) -->
+      <ImageView fx:id="arrowLeft" fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="300.0"
+                 onMouseClicked="#goToUlice4"
+                 onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited"
+                 pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/sipka_doleva.png" />
+         </image>
+      </ImageView>
+
+      <!-- Navigační šipka doprava (do zahrady) – hlídaná NPC -->
+      <ImageView fx:id="arrowRight" fitHeight="80.0" fitWidth="80.0" layoutX="1100.0" layoutY="300.0"
+                 onMouseClicked="#goToHugoZahrada"
+                 onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited"
+                 pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/sipka_doprava.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

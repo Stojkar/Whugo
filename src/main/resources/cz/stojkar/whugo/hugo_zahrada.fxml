@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.stojkar.whugo.controllers.HugoZahradaController">
+   <children>
+      <!-- Pozadí lokace -->
+      <ImageView fitHeight="600.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@images/hugo_zahrada.png" />
+         </image>
+      </ImageView>
+
+      <!-- Žebřík opřený o zeď pod oknem (skrytý ve výchozím stavu) -->
+      <ImageView fx:id="zebrikNaStene" fitHeight="450.0" fitWidth="150.0" layoutX="175.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@images/zebrik.png" />
+         </image>
+      </ImageView>
+
+      <!-- Zóna okna (přijímá Drag&Drop a kliknutí pro vstup do domu) -->
+      <Rectangle fx:id="oknoZona" width="120.0" height="200.0" layoutX="170.0" layoutY="120.0" fill="transparent" 
+          onDragOver="#onDragOverOkno" onDragDropped="#onDragDroppedOkno" onMouseClicked="#goToVnitrekDomu"
+          onMouseEntered="#onOknoEntered" onMouseExited="#onOknoExited">
+      </Rectangle>
+
+      <!-- Zóna kůlny (přijímá Drag&Drop klíče a kliknutí pro vstup do kůlny) -->
+      <Rectangle fx:id="kulnaZona" width="200.0" height="300.0" layoutX="640.0" layoutY="150.0" fill="transparent"
+                 onDragOver="#onDragOverKulna" onDragDropped="#onDragDroppedKulna" onMouseClicked="#goToKulna"
+                 onMouseEntered="#onKulnaEntered" onMouseExited="#onKulnaExited" />
+
+      <!-- Hrdina -->
+      <ImageView fx:id="heroSprite" fitHeight="250.0" fitWidth="150.0" layoutX="500.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/hrdina_stoji.png" />
+         </image>
+      </ImageView>
+
+      <!-- Navigační šipka -->
+      <ImageView fx:id="arrowLeft" fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="300.0" onMouseClicked="#goToHugoDum" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/sipka_doleva.png" />
+         </image>
+      </ImageView>
+
+      <!-- Navigační šipka -->
+      <ImageView fx:id="arrowRight" fitHeight="80.0" fitWidth="80.0" layoutX="1100.0" layoutY="300.0" onMouseClicked="#goToRybnik" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/sipka_doprava.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

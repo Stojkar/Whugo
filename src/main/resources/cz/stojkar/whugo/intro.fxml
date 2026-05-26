@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.stojkar.whugo.controllers.IntroController">
+   <children>
+      <MediaView fx:id="introMediaView" fitHeight="720.0" fitWidth="1280.0" />
+      <Button layoutX="1100.0" layoutY="650.0" mnemonicParsing="false" onMouseClicked="#onSkipClicked" style="-fx-background-color: rgba(255, 255, 255, 0.5);" text="Přeskočit intro" textFill="BLACK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
